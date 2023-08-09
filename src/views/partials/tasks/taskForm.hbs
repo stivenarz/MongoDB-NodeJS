@@ -10,9 +10,9 @@
 
   <div class="d-flex justify-content-center">
     {{#if task }}
-    <form action="/task/{{task._id}}/update" method="post">
+    <form action="/tasks/{{task._id}}/update" method="post">
     {{else}}
-    <form action="/task/save" method="post">
+    <form action="/tasks/save" method="post">
     {{/if}}
 
       <div class="card m-1" style="width: 300px;">

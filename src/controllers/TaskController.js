@@ -4,7 +4,7 @@ import Task from "../models/Task";
 
 const TaskController = {
     index: async (req, res) => {
-        const tasks = await Task.find().lean();
+        var tasks = await Task.find().lean();
         res.render("index", {
           tasks,
           layout: "main",

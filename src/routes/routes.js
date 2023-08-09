@@ -13,14 +13,14 @@ router.get("/about", (req, res) => {
 
 router.get("/tasks", TaskController['index']);
 
-router.post("/task/save", TaskController['save']);
+router.post("/tasks/save", TaskController['save']);
 
-router.get("/task/:id/edit", TaskController['edit']);
+router.post("/tasks/:id/update", TaskController['update']);
 
-router.post("/task/:id/update", TaskController['update']);
+router.get("/tasks/:id/edit", TaskController['edit']);
 
-router.get("/task/:id/delete", TaskController['delete']);
+router.get("/tasks/:id/delete", TaskController['delete']);
 
-router.get("/task/:id/toggledone", TaskController['toggleDone']);
+router.get("/tasks/:id/toggledone", TaskController['toggleDone']);
 
 export default router;
