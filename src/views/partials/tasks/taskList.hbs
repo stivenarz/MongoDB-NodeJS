@@ -1,0 +1,59 @@
+
+  <h1 class="text-center"> Tasks </h1>
+
+  <div class="m-0 row">
+
+    {{#each tasks}}
+      <div class="card m-1" style="width: 300px; height: 200px;">
+
+        <div class="card-header">
+          <h5 class="text-truncate"> {{title}} </h5>
+        </div>
+
+        <div class="card-body text-secondary overflow-auto">
+          <p class=""> {{description}} </p>
+        </div>
+
+        <div class="card-footer">
+          <div class="text-secondary">
+            {{#if done}}
+              Finished
+            {{else}}
+              Pending
+            {{/if}}
+          </div>
+          <div class="btn-group d-flex justify-content-end">
+            <a
+              href="/task/{{_id}}/toggleDone"
+              name="btnMark"
+              key="{{@index}}"
+              {{#if done}}
+              class="btn btn-secondary"
+            {{else}}
+              class="btn btn-success"
+            {{/if}}
+            >
+            {{#if done}}
+              Undone
+            {{else}}
+              Done</a>
+            {{/if}}
+            <a
+            href="/task/{{_id}}/edit"
+              name="btnEdit"
+              key="{{@index}}"
+              class="btn btn-info"
+            >Edit</a>
+            <a
+            href="/task/{{_id}}/delete"
+              name="btnDelete"
+              key="{{@index}}"
+              class="btn btn-danger"
+            >Delete</a>
+            </div>
+        </div>
+
+      </div>
+    {{/each}}
+
+  </div>

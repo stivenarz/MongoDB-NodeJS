@@ -1,0 +1,73 @@
+<div class="m-0">
+
+  <h1 class="text-center">
+    {{#if task }}
+      Edit task
+    {{else}}
+      New task
+    {{/if}}
+  </h1>
+
+  <div class="d-flex justify-content-center">
+    {{#if task }}
+    <form action="/task/{{task._id}}/update" method="post">
+    {{else}}
+    <form action="/task/save" method="post">
+    {{/if}}
+
+      <div class="card m-1" style="width: 300px;">
+
+        <div class="card-header">
+          <input
+            class="form-control"
+            type="text"
+            id="title"
+            name="title"
+            placeholder="Input a title..."
+            {{#if task}}
+              value=" {{task.title}} "
+            {{/if}}
+            required
+          />
+        </div>
+
+        <div class="card-body">
+          <textarea
+            class="form-control"
+            id="description"
+            name="description"
+            placeholder="Input a description..."
+            required
+          >
+          {{#if task }}
+            {{task.description}}
+          {{/if}}
+          </textarea>
+
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+          <div>
+          </div>
+          <div class="d-flex justify-content-end">
+            <div class="btn-group">
+              <button class="btn btn-success" type="submit">
+                {{#if task }}
+                  Update
+                {{else}}
+                  Add
+                {{/if}}
+              </button>
+              {{#if task }}
+                <a 
+                  href="/" 
+                  class="btn btn-secondary">Cancelar</a>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+</div>
