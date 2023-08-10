@@ -1,21 +1,24 @@
-<div class="m-0">
 
-  <h1 class="text-center">
+
+  <h1 class="bg-dark text-white p-1 mb-2 col-12" data-bs-toggle="collapse" data-bs-target="#addTask" aria-controls="addTask" aria-expanded="false" aria-label="Toggle navigation" onclick="function(){alert('Hola')}">
     {{#if task }}
       Edit task
     {{else}}
-      New task
+      Add task
     {{/if}}
   </h1>
 
-  <div class="d-flex justify-content-center">
+<div class="navbar-expand-md">
+  <div 
     {{#if task }}
-    <form action="/tasks/{{task._id}}/update" method="post">
     {{else}}
-    <form action="/tasks/save" method="post">
+      class="collapse navbar-collapse" id="addTask"
     {{/if}}
-
-      <div class="card m-1" style="width: 300px;">
+  >    
+  
+    <form action="{{#if task }}/tasks/{{task._id}}/update{{else}}/tasks/save{{/if}}" method="post">
+    
+      <div class="card m-1" >
 
         <div class="card-header">
           <input
@@ -25,7 +28,7 @@
             name="title"
             placeholder="Input a title..."
             {{#if task}}
-              value=" {{task.title}} "
+              value="{{task.title}}"
             {{/if}}
             required
           />
@@ -38,18 +41,14 @@
             name="description"
             placeholder="Input a description..."
             required
-          >
-          {{#if task }}
-            {{task.description}}
-          {{/if}}
-          </textarea>
+          >{{#if task }}{{task.description}}{{/if}}</textarea>
 
         </div>
-        <div class="card-footer d-flex justify-content-between">
+        <div class=" d-flex justify-content-between m-2">
           <div>
           </div>
           <div class="d-flex justify-content-end">
-            <div class="btn-group">
+            <div class="">
               <button class="btn btn-success" type="submit">
                 {{#if task }}
                   Update
@@ -68,6 +67,8 @@
       </div>
 
     </form>
+  
   </div>
 
 </div>
+
